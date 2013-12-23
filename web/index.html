@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <title>Blip Christmas Game</title>
+
     <script src="lib/crafty.js"></script>
+    <script src="lib/tiledmapbuilder.js"></script>
+    <script src="lib/create_mocks_module.js"></script>
+
     <script src="src/game.js"></script>
+
     <script src="src/components/actor.js"></script>
     <script src="src/components/bush.js"></script>
-    <script src="src/components/grid.js"></script>
     <script src="src/components/playercharacter.js"></script>
     <script src="src/components/rock.js"></script>
     <script src="src/components/tree.js"></script>
     <script src="src/components/village.js"></script>
+    <script src="src/components/levels/level1.js"></script>
+
     <script src="src/scenes/game.js"></script>
     <script src="src/scenes/loading.js"></script>
     <script src="src/scenes/victory.js"></script>
+
+    <script src="src/maps/forest.js"></script>
     <script>
         window.addEventListener('load', Game.start);
     </script>
@@ -23,33 +33,9 @@
             color: #DDD;
             font-family: Arial;
         }
-
-        .controls {
-            color: #BBB;
-        }
-
-        #cr-stage { margin: 20px auto 0; }
-
-        .bottom {
-            font-size: 12px;
-            color: #888;
-            margin-top: 50px;
-        }
-
-        .bottom a {
-            color: #AAA;
-        }
     </style>
 </head>
 <body>
-<h2>Crafty's Adventure</h2>
-
-<p>Help Crafty visit her friends in each village.</p>
-
-<p class="controls">Controls: Use W, A, S, and D or arrow keys to move around.</p>
-
 <div id="cr-stage"></div>
-
-<p class="bottom">Created for the "Introduction to Crafty Game Engine" tutorial on <a href="http://buildnewgames.com" target="_blank">Build New Games</a>.
 </body>
 </html>

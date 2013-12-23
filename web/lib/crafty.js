@@ -2434,8 +2434,8 @@ Crafty.c("Gravity", {
 	*
 	* Enable gravity for this entity no matter whether comp parameter is not specified,
 	* If comp parameter is specified all entities with that component will stop this entity from falling.
-	* For a player entity in a platform game this would be a component that is added to all entities
-	* that the player should be able to walk on.
+	* For a sprite entity in a platform game this would be a component that is added to all entities
+	* that the sprite should be able to walk on.
 	*
 	* @example
 	* ~~~
@@ -2501,7 +2501,7 @@ Crafty.c("Gravity", {
 
 		for (; i < l; ++i) {
 			obj = q[i];
-			//check for an intersection directly below the player
+			//check for an intersection directly below the sprite
 			if (obj !== this && obj.has(this._anti) && obj.intersect(pos)) {
 				hit = obj;
 				break;

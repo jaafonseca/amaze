@@ -1,58 +1,47 @@
 // This is the player-controlled character
 Crafty.c('PlayerCharacter', {
-    init: function() {
-        this.requires('Actor, Fourway, Collision, spr_player, SpriteAnimation')
-            .fourway(2)
-            .stopOnSolids()
-            .onHit('Village', this.visitVillage)
-            // These next lines define our four animations
-            //  each call to .animate specifies:
-            //  - the name of the animation
-            //  - the x and y coordinates within the sprite
-            //     map at which the animation set begins
-            //  - the number of animation frames *in addition to* the first one
-            .animate('PlayerMovingUp',    0, 0, 2)
-            .animate('PlayerMovingRight', 0, 1, 2)
-            .animate('PlayerMovingDown',  0, 2, 2)
-            .animate('PlayerMovingLeft',  0, 3, 2);
 
-        // Watch for a change of direction and switch animations accordingly
-        var animation_speed = 4;
-        this.bind('NewDirection', function(data) {
-            if (data.x > 0) {
-                this.animate('PlayerMovingRight', animation_speed, -1);
-            } else if (data.x < 0) {
-                this.animate('PlayerMovingLeft', animation_speed, -1);
-            } else if (data.y > 0) {
-                this.animate('PlayerMovingDown', animation_speed, -1);
-            } else if (data.y < 0) {
-                this.animate('PlayerMovingUp', animation_speed, -1);
-            } else {
-                this.stop();
-            }
-        });
-    },
+    init: function () {
 
-    // Registers a stop-movement function to be called when
-    //  this entity hits an entity with the "Solid" component
-    stopOnSolids: function() {
-        this.onHit('Solid', this.stopMovement);
+        this.requires("Actor, SpriteAnimation, Ogre, Multiway, Keyboard, Collision")
+            .attr({x: Game.view.width / 4, y: Game.view.height / 2})
+            .animate("walk_w", 0, 0, 2)
+            .animate("walk_s", 0, 1, 2)
+            .animate("walk_q", 0, 3, 2)
+            .animate("walk_a", 0, 2, 2)
+            .collision(new Crafty.polygon([5, 30], [10, 30], [10, 35], [5, 35]))
+            .multiway(1, {Q: 225, W: -45, S: 45, A: 135})
+            .bind('Moved', function (from) {
 
-        return this;
-    },
+                if (this.hit('Bridge')) {
 
-    // Stops the movement
-    stopMovement: function() {
-        this._speed = 0;
-        if (this._movement) {
-            this.x -= this._movement.x;
-            this.y -= this._movement.y;
-        }
-    },
+                } else if (this.hit('Obstacle')) {
+                    this.attr({x: from.x, y: from.y});
+                }
 
-    // Respond to this player visiting a village
-    visitVillage: function(data) {
-        villlage = data[0].obj;
-        villlage.visit();
+                this.z = Math.floor(this._y);
+            })
+            .bind("NewDirection",
+            function (direction) {
+                if (direction.x < 0 && direction.y < 0) {
+                    if (!this.isPlaying("walk_q"))
+                        this.stop().animate("walk_q", 10, -1);
+                }
+                if (direction.x > 0 && direction.y > 0) {
+                    if (!this.isPlaying("walk_s"))
+                        this.stop().animate("walk_s", 10, -1);
+                }
+                if (direction.x < 0 && direction.y > 0) {
+                    if (!this.isPlaying("walk_a"))
+                        this.stop().animate("walk_a", 10, -1);
+                }
+                if (direction.x > 0 && direction.y < 0) {
+                    if (!this.isPlaying("walk_w"))
+                        this.stop().animate("walk_w", 10, -1);
+                }
+                if (!direction.x && !direction.y) {
+                    this.stop();
+                }
+            })
     }
 });
