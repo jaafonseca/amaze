@@ -1,0 +1,165 @@
+{ "backgroundcolor": "#ffffff",
+    "height": 64,
+    "layers": [
+        {
+            "data": [0,0,0,0],
+            "height": 2,
+            "name": "Water",
+            "opacity": 1,
+            "type": "tilelayer",
+            "visible": true,
+            "width": 2,
+            "x": 0,
+            "y": 0
+        }
+    ],
+    "orientation": "isometric",
+    "properties": {
+
+    },
+    "tileheight": 32,
+    "tilesets": [
+        {
+            "firstgid": 1,
+            "image": "..\/..\/assets\/terrain\/iso-64x64-outside.png",
+            "imageheight": 1024,
+            "imagewidth": 640,
+            "margin": 0,
+            "name": "iso-64x64-outside",
+            "properties": {
+
+            },
+            "spacing": 0,
+            "terrains": [
+                {
+                    "name": "Water Margin",
+                    "tile": 84
+                },
+                {
+                    "name": "Grass",
+                    "tile": 114
+                },
+                {
+                    "name": "Rock",
+                    "tile": 54
+                },
+                {
+                    "name": "Land",
+                    "tile": 0
+                }
+            ],
+            "tileheight": 64,
+            "tiles": {
+                "0": {
+                    "terrain": [3, 3, 3, 3]
+                },
+                "1": {
+                    "terrain": [3, 3, 3, 3]
+                },
+                "10": {
+                    "terrain": [3, 3, 3, 3]
+                },
+                "11": {
+                    "terrain": [3, 3, 3, 3]
+                },
+                "114": {
+                    "terrain": [1, 1, 1, 1]
+                },
+                "12": {
+                    "terrain": [3, 3, 3, 3]
+                },
+                "2": {
+                    "terrain": [3, 3, 3, 3]
+                },
+                "3": {
+                    "terrain": [3, 3, 3, 3]
+                },
+                "4": {
+                    "terrain": [3, 3, 3, 3]
+                },
+                "5": {
+                    "terrain": [3, 3, 3, 3]
+                },
+                "50": {
+                    "terrain": [2, -1, -1, -1]
+                },
+                "51": {
+                    "terrain": [2, 2, -1, -1]
+                },
+                "52": {
+                    "terrain": [-1, -1, 2, 2]
+                },
+                "53": {
+                    "terrain": [-1, 2, -1, -1]
+                },
+                "54": {
+                    "terrain": [2, 2, 2, 2]
+                },
+                "55": {
+                    "terrain": [2, 2, 2, 2]
+                },
+                "56": {
+                    "terrain": [-1, -1, 2, -1]
+                },
+                "57": {
+                    "terrain": [-1, 2, -1, 2]
+                },
+                "58": {
+                    "terrain": [2, -1, 2, -1]
+                },
+                "59": {
+                    "terrain": [-1, -1, -1, 2]
+                },
+                "6": {
+                    "terrain": [3, 3, 3, 3]
+                },
+                "80": {
+                    "terrain": [0, 3, 3, 3]
+                },
+                "81": {
+                    "terrain": [0, 0, 3, 3]
+                },
+                "82": {
+                    "terrain": [0, 3, 0, 3]
+                },
+                "83": {
+                    "terrain": [3, 0, 3, 3]
+                },
+                "84": {
+                    "terrain": [0, 0, 0, 0]
+                },
+                "85": {
+                    "terrain": [0, 0, 0, 0]
+                },
+                "86": {
+                    "terrain": [3, 3, 0, 3]
+                },
+                "87": {
+                    "terrain": [3, 0, 3, 0]
+                },
+                "88": {
+                    "terrain": [3, 3, 0, 0]
+                },
+                "89": {
+                    "terrain": [3, 3, 3, 0]
+                },
+                "96": {
+                    "terrain": [3, 0, 0, 0]
+                },
+                "97": {
+                    "terrain": [0, 3, 0, 0]
+                },
+                "98": {
+                    "terrain": [0, 0, 3, 0]
+                },
+                "99": {
+                    "terrain": [0, 0, 0, 3]
+                }
+            },
+            "tilewidth": 64
+        }
+    ],
+    "tilewidth": 64,
+    "version": 1,
+    "width": 32
+}

@@ -4,13 +4,13 @@ Crafty.c('PlayerCharacter', {
     init: function () {
 
         this.requires("Actor, SpriteAnimation, Ogre, Multiway, Keyboard, Collision")
-            .attr({x: Game.view.width / 4, y: Game.view.height / 2})
+            .attr({x: 40, y: 0})
             .animate("walk_w", 0, 0, 2)
             .animate("walk_s", 0, 1, 2)
             .animate("walk_q", 0, 3, 2)
             .animate("walk_a", 0, 2, 2)
             .collision(new Crafty.polygon([5, 30], [10, 30], [10, 35], [5, 35]))
-            .multiway(1, {Q: 225, W: -45, S: 45, A: 135})
+            .multiway(2, {UP_ARROW: -91, RIGHT_ARROW: 1, DOWN_ARROW: 91, LEFT_ARROW: -181})
             .bind('Moved', function (from) {
 
                 if (this.hit('Bridge')) {
