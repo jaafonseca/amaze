@@ -8,11 +8,13 @@ Crafty.scene('Game', function () {
 
     Game.maze.tileMap = map.tileMap;
 
+//    console.log(document.getElementById("level").setText("innerHtml","Level: " + Game.maze.displayLevel));
+
     var player = Crafty.e("PlayerCharacter").at(Math.floor((Game.maze.level - 1) / 2), Math.floor((Game.maze.level - 1) / 2));
 
     Crafty.e("Goal").at(Game.maze.level - 1, Game.maze.level - 1);
 
-    // folow player
+    // follow player
     Crafty.viewport.follow(player, 0, 0);
 
     // level up

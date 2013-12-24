@@ -33,11 +33,26 @@
             background: black;
             text-align: center;
             color: #DDD;
-            font-family: Arial;
+            font-family: Helvetica, Arial;
+            font-size:11px;
+        }
+
+        .score, .level {
+            color:#FFF;
+            position:absolute;
+            z-index:1000;
+            top:10px;
+            left:10px;
+        }
+
+        .level {
+            top:25px;
         }
     </style>
 </head>
 <body>
+<div id="score" class="score">Score:0</div>
+<div id="level" class="level"></div>
 <div id="cr-stage"></div>
 </body>
 </html>

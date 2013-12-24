@@ -2,21 +2,28 @@
 // -------------
 Crafty.scene('Victory', function () {
     // Display some text in celebration of the victory
-    Crafty.e('Actor, Text')
-        .text('Great! Press any key to move on to the next level')
-        .attr({ x: 0, y: 100 });
-//
-//    // Give'em a round of applause!
-//    Crafty.audio.play('applause');
+    var message = Crafty.e('Actor, Text')
+        .attr({w: Game.view.width});
 
-    this.levelUp = Crafty.bind('KeyDown', function () {
-        Game.maze.level++;
-        Game.maze.displayLevel++;
-        Crafty.scene('Game');
-    });
-}, function () {
-    // Remove our event binding from above so that we don't
-    //  end up having multiple redundant event watchers after
-    //  multiple restarts of the game
-    this.unbind('KeyDown', this.levelUp);
+
+    var countDown = 3;
+
+    var timer = function () {
+        message.text("Level up in " + countDown);
+
+        if (countDown == 0) {
+            Game.maze.level++;
+            Game.maze.displayLevel++;
+            Crafty.scene('Game')
+        }
+
+        countDown--;
+
+        setTimeout(timer, 1000);
+    }
+
+    timer();
+
+    Crafty.viewport.follow(message, 0, 0);
+
 });

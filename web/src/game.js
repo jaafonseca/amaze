@@ -5,7 +5,6 @@ Game = {
         height: window.innerHeight
     },
 
-
     maze: {
         level: 4,
         gridSize: 4,
