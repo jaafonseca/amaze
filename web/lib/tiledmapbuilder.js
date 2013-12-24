@@ -97,7 +97,7 @@ Crafty.c("TiledMapBuilder", {
 	 * #TiledMapBuilder.lazyLoadingForEntity
 	 * Is rendering a lazy tiled views based on the sprite entity.
 	 * 	
-	 * @param {Object} entity, Crafty.e	
+	 * @param {Object} entity, Crafty.ey
 	 * @return {Object} this   			
 	 */
     lazyLoadingForEntity: function( entity ){
@@ -162,10 +162,10 @@ Crafty.c("TiledMapBuilder", {
 	 * @example
 	 * RenderMethod depends on parent Entity:
 	 * ~~~	
-	 * Crafty.e("2D, Canvas, TiledMapBuilder")
+	 * Crafty.ey("2D, Canvas, TiledMapBuilder")
 	 * return -> Canvas	 
 	 * 	 
-	 * Crafty.e("2D, DOM, TiledMapBuilder")
+	 * Crafty.ey("2D, DOM, TiledMapBuilder")
 	 * return -> DOM	 
 	 * ~~~
 	 * 

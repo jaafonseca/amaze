@@ -3,10 +3,12 @@
 // Runs the core gameplay loop
 Crafty.scene('Game', function () {
 
-    Crafty.e("Level_1");
+    var level = Crafty.e("Level").create(6);
 
-    Crafty.e("PlayerCharacter");
+    console.log(level);
+    var player = Crafty.e("PlayerCharacter").attr({x:100,y:100});
+
 
     // folow player
-    Crafty.viewport.follow(Crafty("Ogre"), 0, 0);
+    Crafty.viewport.follow(player, 0, 0);
 });

@@ -5,6 +5,8 @@ Game = {
         height: window.innerHeight
     },
 
+    level : 1,
+
     start: function () {
         Crafty.init(Game.view.width, Game.view.height);
         Crafty.viewport.clampToEntities = false;

@@ -4,7 +4,7 @@ Crafty.c('PlayerCharacter', {
     init: function () {
 
         this.requires("Actor, SpriteAnimation, Ogre, Multiway, Keyboard, Collision")
-            .attr({x: 40, y: 0})
+            .attr({x: 32, y: 16})
             .animate("walk_w", 0, 0, 2)
             .animate("walk_s", 0, 1, 2)
             .animate("walk_q", 0, 3, 2)

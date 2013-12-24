@@ -2154,7 +2154,7 @@ Crafty.c("2D", {
 	move: function (dir, by) {
 		if (dir.charAt(0) === 'n') this.y -= by;
 		if (dir.charAt(0) === 's') this.y += by;
-		if (dir === 'e' || dir.charAt(1) === 'e') this.x += by;
+		if (dir === 'ey' || dir.charAt(1) === 'ey') this.x += by;
 		if (dir === 'w' || dir.charAt(1) === 'w') this.x -= by;
 
 		return this;
