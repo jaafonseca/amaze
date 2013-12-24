@@ -1,10 +1,10 @@
 // A Bush is just an Actor with a certain sprite
 Crafty.c('Maze', {
-    createMaze: function (level) {
+    init: function () {
 
-        this.tileMap = this.getTiledMap(level + 4);
+        this.tileMap = this.getTiledMap(Game.maze.level);
 
-        this.requires('Actor, TiledMapBuilder')
+        this.requires('2D, DOM, TiledMapBuilder')
             .setMapDataSource(this.tileMap)
             .createWorld(function (tiledmap) {
 
@@ -38,7 +38,6 @@ Crafty.c('Maze', {
             });
 
 
-
         //Brigge
 //        Crafty.e("2D, DOM, Bridge, Collision").attr({x: 0, y: 0, w: Game.view.width, h: Game.view.height})
 //            .collision(new Crafty.polygon([348, 186], [510, 104], [348, 186]));
@@ -64,73 +63,81 @@ Crafty.c('Maze', {
      * @param complexity
      */
     getTiledMap: function (complexity) {
-        var ex = 5,
-            ey = 5,
+        var ex = Game.maze.gridSize,
+            ey = Game.maze.gridSize,
             x = complexity,
             y = complexity,
             maze = this._maze(x, y),
-            walls = this.buildWalls(maze, ex, ey),
-            tiledMap = { "height": x * ex + 1,
-                "layers": [
-                    {
-                        "data": walls,
-                        "height": x * ex + 1,
-                        "name": "Walls",
-                        "opacity": 1,
-                        "type": "tilelayer",
-                        "visible": true,
-                        "width": y * ey + 1,
-                        "x": 0,
-                        "y": 0
-                    }
-                ],
-                "orientation": "orthogonal",
-                "properties": {
+            walls = this.buildWalls(maze, ex, ey);
 
-                },
-                "tileheight": 16,
-                "tilesets": [
-                    {
-                        "firstgid": 1,
-                        "image": "assets/terrain/maze2.png",
-                        "imageheight": 320,
-                        "imagewidth": 640,
-                        "margin": 0,
-                        "name": "maze",
-                        "properties": {
+        var floorTile = this.getFloor(0, 0, maze);
 
-                        },
-                        "spacing": 0,
-                        "tileheight": 16,
-                        "tilewidth": 16
-                    }
-                ],
-                "tilewidth": 16,
-                "version": 1,
-                "width": y * ey + 1
+
+        var wallsLayer = {
+            "data": walls,
+            "height": x * ex + 1,
+            "name": "Walls",
+            "opacity": 1,
+            "type": "tilelayer",
+            "visible": true,
+            "width": y * ey + 1,
+            "x": 0,
+            "y": 0
+        }, floorsLayer = JSON.parse(JSON.stringify(wallsLayer));
+
+        floorsLayer.name = "Floor";
+
+        for (var i = 0; i < floorsLayer.data.length; i++) {
+            if (floorsLayer.data[i] == 0) {
+                floorsLayer.data[i] = floorTile;
+            } else {
+                floorsLayer.data[i] = 0;
             }
+        }
+
+        var tiledMap = { "height": x * ex + 1,
+            "layers": [floorsLayer,wallsLayer],
+            "orientation": "orthogonal",
+            "properties": {
+
+            },
+            "tileheight": 16,
+            "tilesets": [
+                {
+                    "firstgid": 1,
+                    "image": "assets/terrain/maze.png",
+                    "imageheight": 32,
+                    "imagewidth": 160,
+                    "margin": 0,
+                    "name": "maze",
+                    "properties": {
+
+                    },
+                    "spacing": 0,
+                    "tileheight": 16,
+                    "tilewidth": 16
+                }
+            ],
+            "tilewidth": 16,
+            "version": 1,
+            "width": y * ey + 1
+        }
 
         return tiledMap;
     },
 
     buildWalls: function (maze, ex, ey) {
         var walls = [];
+        var wall = this.getWall(j, k, maze);
         for (var j = 0; j < maze.x * ex + 1; j++) {
             for (var k = 0; k < maze.y * ey + 1; k++) {
 
                 var xWall = (j % ex == 0);
                 var yWall = (k % ey == 0);
 
-                var wall = 3;
                 var empty = 0;
 
-                if (j == 0 || k == 0 || j == maze.x * ex || k == maze.y * ey) {
-                    wall = 1;
-                }
-
-                if (j == maze.x * ex - 1 && k == maze.y * ey) {
-                    walls.push(wall)
-                } else if (xWall && yWall) { // pillars
+                if (xWall && yWall) { // pillars
                     walls.push(wall);
                 } else if (xWall) {
                     var x = j / ex - 1;
@@ -157,6 +164,14 @@ Crafty.c('Maze', {
         return walls;
     },
 
+    getFloor: function (j, k, maze) {
+        return Math.floor(Math.random() * 10 + 1);
+    },
+
+    getWall: function (j, k, maze) {
+        return Math.floor(Math.random() * 10 + 11);
+    },
+
     /**
      * Maze Algorithm - Adaptation from http://stackoverflow.com/questions/15981271/implement-maze-generation-algorithm-in-javascript
      *
@@ -168,7 +183,7 @@ Crafty.c('Maze', {
         var n = x * y - 1;
         if (n < 0) {
             alert("illegal maze dimensions");
-            return;
+            return null;
         }
 
         var horiz = [];

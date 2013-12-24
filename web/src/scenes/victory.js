@@ -4,9 +4,8 @@
 Crafty.scene('Victory', function() {
     // Display some text in celebration of the victory
     Crafty.e('Actor, Text')
-        .text('All villages visited!')
-        .attr({ x: 0, y: Game.height()/2 - 24, w: Game.width() })
-        .css($text_css);
+        .text('Great! Press any key to move on to the next level')
+        .attr({ x: 0, y: Game.height()/2 - 24, w: Game.width() });
 
     // Give'em a round of applause!
     Crafty.audio.play('applause');

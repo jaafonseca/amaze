@@ -5,7 +5,13 @@ Game = {
         height: window.innerHeight
     },
 
-    level : 1,
+
+    maze: {
+        level: 14,
+        gridSize: 4,
+        displayLevel: 1,
+        tileMap: {}
+    },
 
     start: function () {
         Crafty.init(Game.view.width, Game.view.height);
