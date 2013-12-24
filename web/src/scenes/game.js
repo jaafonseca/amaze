@@ -17,9 +17,7 @@ Crafty.scene('Game', function () {
 
     // level up
     this.levelUp = this.bind('GoalReached', function() {
-        Game.maze.level++;
-        Game.maze.displayLevel++;
-        Crafty.scene('Game');
+        Crafty.scene('Victory');
     });
 
 

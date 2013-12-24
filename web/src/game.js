@@ -7,7 +7,7 @@ Game = {
 
 
     maze: {
-        level: 14,
+        level: 4,
         gridSize: 4,
         displayLevel: 1,
         tileMap: {}

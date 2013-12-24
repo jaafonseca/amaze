@@ -66,9 +66,15 @@ Crafty.c('Maze', {
         var ex = Game.maze.gridSize,
             ey = Game.maze.gridSize,
             x = complexity,
-            y = complexity,
-            maze = this._maze(x, y),
-            walls = this.buildWalls(maze, ex, ey);
+            y = complexity;
+
+        console.time("maze");
+        var maze = this._maze(x, y);
+        console.timeEnd("maze");
+
+        console.time("walls");
+        var walls = this.buildWalls(maze, ex, ey);
+        console.timeEnd("walls");
 
         var floorTile = this.getFloor(0, 0, maze);
 
