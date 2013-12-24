@@ -1,11 +1,11 @@
 // A Bush is just an Actor with a certain sprite
-Crafty.c('Level', {
-    create: function (level) {
+Crafty.c('Maze', {
+    createMaze: function (level) {
 
-        var tileMap = this.getTiledMap(level + 4);
+        this.tileMap = this.getTiledMap(level + 4);
 
         this.requires('Actor, TiledMapBuilder')
-            .setMapDataSource(tileMap)
+            .setMapDataSource(this.tileMap)
             .createWorld(function (tiledmap) {
 
 //                //Roots
@@ -64,8 +64,8 @@ Crafty.c('Level', {
      * @param complexity
      */
     getTiledMap: function (complexity) {
-        var ex = 6,
-            ey = 6,
+        var ex = 5,
+            ey = 5,
             x = complexity,
             y = complexity,
             maze = this._maze(x, y),
