@@ -9,6 +9,7 @@ Game = {
         level: 4,
         gridSize: 4,
         displayLevel: 1,
+        score: 0,
         tileMap: {}
     },
 
