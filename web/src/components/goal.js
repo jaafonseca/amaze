@@ -1,7 +1,7 @@
 Crafty.c('Goal', {
 
     init: function () {
-        this.requires('Actor, icon_scroll');
+        this.requires('Actor, Scroll');
     },
 
     reach: function () {

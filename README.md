@@ -29,3 +29,5 @@ References
 http://craftyjs.com/ - CrafyJS Homepage and links to documentation
 
 http://buildnewgames.com/introduction-to-crafty/ - Step by Step introduction to Crafty with examples.
+
+http://opengameart.org/ - Images, Sprites, Sounds, etc

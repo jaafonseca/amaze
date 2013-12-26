@@ -17,13 +17,13 @@ Crafty.scene('Loading', function () {
 
 
         Crafty.sprite(16, 'assets/sprite/icons.gif', {
-            icon_carrot: [0, 0],
-            icon_corn: [1, 0],
-            icon_spice: [2, 0],
-            icon_lemon: [4, 1],
-            icon_sword: [4, 2],
-            icon_ring: [7, 3],
-            icon_scroll: [8, 5]
+            Carrot: [0, 0],
+            Corn: [1, 0],
+            Spice: [2, 0],
+            Lemon: [4, 1],
+            Sword: [4, 2],
+            Ring: [7, 3],
+            Scroll: [8, 5]
         });
 
         Crafty.sprite(16, 'assets/sprite/hunter.png', {
