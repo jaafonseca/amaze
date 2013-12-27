@@ -19,7 +19,6 @@ Crafty.c("Item", {
     // Process a visitation with this village
     grab: function () {
         this.destroy();
-        Crafty.trigger('ScoreUp', this.itemScore);
-        Crafty.trigger('FoodUp', this.foodAmount);
+        Crafty.trigger('ScoreUp', {score: this.itemScore, food: this.foodAmount});
     }
 });

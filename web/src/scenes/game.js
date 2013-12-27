@@ -18,12 +18,12 @@ Crafty.scene('Game', function () {
     this.createItems = function () {
         var items = [];
 
-        items.push({entity: "Item, Ring", score: 15, food: 0, p: 0.01});
-        items.push({entity: "Item, Sword", score: 10, food: 0, p: 0.02});
-        items.push({entity: "Item, Spice", score: 5, food: 0, p: 0.05});
-        items.push({entity: "Item, Lemon", score: 3, food: 3, p: 0.05});
-        items.push({entity: "Item, Corn", score: 2, food: 5, p: 0.1});
-        items.push({entity: "Item, Carrot", score: 1, food: 5, p: 0.2});
+        items.push({entity: "Item, Ring", score: 15, food: 0, p: 0.005});
+        items.push({entity: "Item, Sword", score: 10, food: 0, p: 0.01});
+        items.push({entity: "Item, Spice", score: 5, food: 0, p: 0.02});
+        items.push({entity: "Item, Lemon", score: 3, food: 3, p: 0.02});
+        items.push({entity: "Item, Corn", score: 2, food: 5, p: 0.05});
+        items.push({entity: "Item, Carrot", score: 1, food: 5, p: 0.1});
 
         for (var i = 0; i < Game.maze.level - 1; i++) {
             for (var j = 0; j < Game.maze.level - 1; j++) {

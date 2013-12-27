@@ -20,6 +20,7 @@
     <script src="src/scenes/game.js"></script>
     <script src="src/scenes/loading.js"></script>
     <script src="src/scenes/victory.js"></script>
+    <script src="src/scenes/gameover.js"></script>
 
     <script src="src/maps/forest.js"></script>
     <script>
@@ -36,7 +37,7 @@
             font-size:11px;
         }
 
-        .score, .level {
+        .score, .level, .food {
             color:#FFF;
             position:absolute;
             z-index:1000;
@@ -47,11 +48,16 @@
         .level {
             top:25px;
         }
+
+        .food {
+            top:40px;
+        }
     </style>
 </head>
 <body>
 <div id="score" class="score">Score: 0</div>
 <div id="level" class="level">Level: 1</div>
+<div id="food" class="food">Energy: 10</div>
 <div id="cr-stage"></div>
 </body>
 </html>
