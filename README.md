@@ -31,3 +31,32 @@ http://craftyjs.com/ - CrafyJS Homepage and links to documentation
 http://buildnewgames.com/introduction-to-crafty/ - Step by Step introduction to Crafty with examples.
 
 http://opengameart.org/ - Images, Sprites, Sounds, etc
+
+How to deploy to OpenShift
+----------
+
+Create OpenShift application
+
+	rhc app create -a amaze -t diy-0.1
+
+This will create a new git repo for your application and enter the directory
+
+	cd amaze
+
+Add _this_ repository as new remote
+
+	git remote add template -m master git://github.com/adaofeliz/amaze.git
+
+and pull locally
+
+	git pull -s recursive -X theirs template master
+
+and deploy to OpenShift
+
+	git push origin master
+
+Now, your application is available at
+
+	http://amaze-$namespace.rhcloud.com/
+
+Take a look how we install vert.x in the script .openshift/action_hooks/pre_build for an idea of how to do that.
