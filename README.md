@@ -15,14 +15,6 @@ how to install and run _vertx_ is available from the website.
 ### Clone the repository
     git clone git@github.com:jaafonseca/amaze.git
 
-### Start the application with vertex
-    vertx run app.js
-
-### Open in browser
-    http://localhost:8080/
-
-
-
 References
 ----------
 
@@ -37,7 +29,7 @@ How to deploy to OpenShift
 
 Create OpenShift application
 
-	rhc app create -a amaze -t diy-0.1
+	rhc app create -a amaze -t php-5.3
 
 This will create a new git repo for your application and enter the directory
 
@@ -45,7 +37,7 @@ This will create a new git repo for your application and enter the directory
 
 Add _this_ repository as new remote
 
-	git remote add template -m master git://github.com/adaofeliz/amaze.git
+	git remote add template -m master git://github.com/jaafonseca/amaze.git
 
 and pull locally
 
